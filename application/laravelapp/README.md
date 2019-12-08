@@ -40,8 +40,27 @@ php artisan key:generate
 
 ## Run the database migrations (Set the database connection in .env before migrating)
 
+僕が確認したときは、.envの
+
+```
+DB_DATABASE=laravel
+```
+を
+```
+DB_DATABASE=skillExam
+```
+に変えれば正しく動きました
+
+(あってるかがわかりません、、)
+
 ```
 php artisan migrate
+```
+
+## Run the database seeders
+
+```
+php artisan db:seed
 ```
 
 ## Start the local development server
