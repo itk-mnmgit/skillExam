@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      h1{
+          font-size:200pt;
+          text-align: left;
+          color:#f6f6f6;
+          margin:20px 0px -100px 0px;
+      }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+<h1>素数算出</h1>
+
+
+<script>
+
+//2. 素数算出
+
+    //1~10000までの数字の中で素数を割り出し、その素数のみを順に出力する。なお、各出力の後には改行を入れること。
+
+//【解説】
+    // 各iについて,2からi/2(時短にため /2)まで除算をし,一度でも割れればbreak文を用いてjのfor文を終了し,jを2に戻してから次のiに進む。
+    //一度もjで割れず、かつ1でなければ素数として出力、改行する。
+    //isDevidedをfalseに戻し、次の1に進む。
+    let isDevided = false;      //除算可能かを返す
+    for(let i=1; i<=10000; i++){
+        for(let j=2; j<i/2; j++){
+            if(i%j==0){
+                isDevided = true;
+                break;
+            }
+        }
+        j=2;
+        if(isDevided==false && i!=1){
+            console.log(i + '\n')
+        }
+        isDevided=false;          //初期化
+    }
+
+//【解説】
+    // 各iについて,2からi/2(時短にため /2)まで除算をし,1度でも割れればbreak文を用いてjのfor文を終了し,jを2に戻してから次のiに進む。
+    //一度もjで割れなければ、素数として配列primenumbersに順番に格納する。
+    //1から10000まで調べ終えた後に,素数の定義上1は素数に含まれないので、shift()を用いて第一要素である1を取り除き、残りの配列を出力する。
+
+    // let isDevided = false;      //除算可能かを返す
+    // const primenumbers = [];    //素数を格納する
+    // let count=0;
+    // for(let i=1; i<=10000; i++){
+    //     for(let j=2; j<i/2; j++){
+    //         if(i%j==0){
+    //             isDevided = true;
+    //             break;
+    //         }
+    //     }
+    //     j=2;
+    //     if(isDevided==false){
+    //     primenumbers.push(i + '\n');
+    //     count++;
+    //     }
+    //     isDevided=false;          //初期化
+    // }
+    // primenumbers.shift();       //1番目の要素を削除
+    // let k=0;
+    // while(k<count-1){
+    //     console.log(primenumbers[k]);
+    //     k++;
+    // }
+
+</script>
+
+</body>
+</html>
